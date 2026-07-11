@@ -1,0 +1,7 @@
+# CIC House Point Standings
+
+> Live leaderboard for the CIC Student Council House Point competition between the Red and White houses.
+
+## Pages
+
+- [Scoreboard](/): Live House Point standings, recent history, and council announcements.

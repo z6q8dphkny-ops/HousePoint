@@ -1,0 +1,530 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #e8d3d3; 
+    color: #262626; 
+    min-height: 100vh;
+    padding-bottom: 60px;
+    position: relative;
+}
+
+
+
+/* ==========================================================================
+   HEADER & NAVIGATION BAR
+   ========================================================================= */
+header {
+    background: #dc2626;
+    padding: 0;
+    width: 100%;
+    height: 75px; 
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 100%; 
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    height: 100%; 
+}
+
+.brand-wrapper h1 {
+    font-size: 1.25rem; 
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.brand-wrapper img.header-logo {
+    max-height: 105px;
+    height: 105px; /* Keeps standard size clean on wide displays */
+    width: auto;
+    object-fit: contain;
+}
+
+.auth-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-login {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.header-login input[type="text"], .password-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+      
+.password-box {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;              
+    width: 220px; 
+}
+
+.password-input-field {
+    border: none !important;
+    color: #ffffff !important;
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.password-input-field:focus { outline: none; }
+
+.show-password-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.75rem;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.header-login input::placeholder { color: rgba(255, 255, 255, 0.6); }
+
+.header-login input[type="text"]:focus, .password-box:focus-within {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #262626;
+}
+
+.password-box:focus-within .password-input-field { color: #262626; }
+.password-box:focus-within label { color: #000000; }
+
+.btn-login-header {
+    background-color: #ffffff;
+    color: #dc2626;
+    height: 42px;            
+    padding: 0 24px;         
+    font-size: 0.9rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;           
+    align-items: center;     
+    justify-content: center; 
+}
+
+.btn-login-header:hover { 
+    background-color: #fef2f2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.user-status {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #ffffff;
+    color: #dc2626;
+    padding: 8px 14px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-logout-header {
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-logout-header:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+
+/* ==========================================================================
+    INTERFACES
+   ========================================================================= */
+.winner-banner {
+    position: relative; 
+    margin: 20px auto;
+    width: 90%;
+    max-width: 950px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #dc2626;
+    border-radius: 16px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.8); 
+    backdrop-filter: blur(8px);            
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.scores {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(229, 229, 229, 0.7);
+    border-radius: 16px;
+    padding: 40px 24px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(220, 38, 38, 0.15);
+}
+
+.card.red { border-bottom: 8px solid #dc2626; }
+.card.red:hover { border-color: #dc2626; }
+.card.red h2 { color: #dc2626; }
+.card.red div { color: #991b1b; }
+
+.card.white { border-bottom: 8px solid #d4d4d8; }
+.card.white:hover { border-color: #a1a1aa; }
+.card.white h2 { color: #71717a; }
+.card.white div { color: #27272a; }
+
+.card h2 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card div {
+    font-size: 5.5rem;
+    font-weight: 800;
+    line-height: 1;
+    display: inline-block; 
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(229, 229, 229, 0.7);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+}
+
+.panel h2 {
+    font-size: 1.35rem;
+    color: #262626;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+#leader {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #71717a;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.panel input, .panel select, .panel textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    background-color: rgba(250, 250, 250, 0.6); 
+    font-size: 1rem;
+    color: #262626;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.panel input:focus, .panel select:focus, .panel textarea:focus {
+    outline: none;
+    border-color: #dc2626;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+    line-height: 1.6;
+}
+
+textarea[readonly] {
+    background-color: rgba(245, 245, 245, 0.6);
+    color: #71717a;
+    border-color: #e5e5e5;
+    cursor: default;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.admin-divider {
+    margin: 32px 0;
+    border: 0;
+    border-top: 2px dashed #fecaca;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================= */
+button.btn-primary {
+    width: 100%;
+    background: #dc2626;
+    color: #ffffff;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+    transition: all 0.2s ease;
+}
+
+button.btn-primary:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
+}
+
+button.btn-secondary {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    color: #dc2626;
+    padding: 14px;
+    border: 2px solid #dc2626;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button.btn-secondary:hover {
+    background: #fef2f2;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   TABLES LOG DATA
+   ========================================================================= */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background-color: rgba(250, 250, 250, 0.5); 
+    color: #52525b;
+    padding: 16px 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f4f4f5;
+    font-size: 0.95rem;
+    color: #262626;
+    font-weight: 600;
+}
+
+tr:hover td { background-color: rgba(254, 242, 242, 0.5); }
+tr:last-child td { border-bottom: none; }
+
+.delete-btn {
+    border: 1px solid #dc2626;
+    color: #dc2626;
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+.delete-btn:hover { background: #dc2626; color: white; }
+
+.banner-body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.banner-icon-trophy {
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+}
+
+.banner-text-details strong {
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.banner-text-details p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.banner-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #a3a3a3;
+    transition: color 0.2s ease;
+}
+
+.banner-close-btn:hover {
+    color: #dc2626;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    -webkit-box-shadow: 0 0 0px 1000px #dc2626 inset; 
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+#user {
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 0 14px;
+    color: white;
+}
+
+.hidden {
+    display: none !important;
+}
+/* Mobile UI fixes */
+
+@media (max-width: 768px) {
+    header {
+        min-height: 75px;
+        height: auto !important; /* Overrides the rigid 75px height on mobile */
+        padding: 24px 0 !important; /* Gives extra top/bottom room for the larger logo */
+    }
+
+    /* Allows the logo to safely stay large on mobile without clipping */
+    .brand-wrapper img.header-logo {
+        height: 100px !important; 
+        max-width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .header-container {
+        flex-direction: column !important;
+        gap: 16px !important;
+        text-align: center;
+        height: auto !important;
+    }
+
+    .brand-wrapper {
+        flex-direction: column !important;
+        gap: 12px !important;
+        height: auto !important;
+    }
+
+    .brand-wrapper h1 {
+        font-size: 1.2rem !important; /* Slightly adjustments for clean balance */
+        white-space: normal !important;
+    }
+
+    /* Stacks the Red and White House cards vertically */
+    .scores {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Stacks the admin panel point/house inputs vertically */
+    .admin-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    .card div {
+        font-size: 4.5rem !important; /* Perfectly balanced score size for mobile dimensions */
+    }
+
+    .panel {
+        padding: 24px 20px !important;
+    }
+}
